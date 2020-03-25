@@ -1,0 +1,37 @@
+//Seive of eratosthenes
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc=new Scanner(System.in);
+		boolean prime[]=new boolean[1000001];
+		Arrays.fill(prime,true);
+		prime[0]=false;
+		prime[1]=false;
+		System.out.println("Enter the number :--  ");
+		int n=sc.nextInt();
+		for(int i=2;i*i<=1000000;i++)
+		{
+		    if(prime[i]==true)
+		        {
+		            for(int p=i*i;p<=n;p+=i)
+		            {
+		                prime[p]=false;
+		            }
+		        }
+		}
+		for(int i=1;i<=n;i++)
+		{
+		    if(prime[i]==true)
+		        System.out.print(i+" ");
+		}
+	}
+
+}
